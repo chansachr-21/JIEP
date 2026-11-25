@@ -1,0 +1,83 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import 'leaflet/dist/leaflet.css';
+
+/* INDUSTRIA — Global Styles */
+:root {
+  --color-navy: #0a0f1e;
+  --color-navy-mid: #0d1526;
+  --color-navy-light: #111827;
+  --color-blue: #1d4ed8;
+  --color-blue-mid: #2563eb;
+  --color-blue-light: #3b82f6;
+  --color-cyan: #06b6d4;
+  --color-cyan-light: #22d3ee;
+  --color-surface: #1e293b;
+  --color-surface-mid: #334155;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-navy);
+  color: #f8fafc;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+
+/* Page transitions */
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.25s ease;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #22d3ee, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card base */
+.card {
+  @apply rounded-xl bg-slate-800/60 border border-slate-700/50 p-5 shadow-lg;
+}
+
+/* Badge verification */
+.badge-verified {
+  @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-emerald-900/50 text-emerald-400 border border-emerald-700/50;
+}
+.badge-needs-verification {
+  @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-amber-900/50 text-amber-400 border border-amber-700/50;
+}
+.badge-unverified {
+  @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-slate-700/50 text-slate-400 border border-slate-600/50;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--color-navy-mid); }
+::-webkit-scrollbar-thumb { background: var(--color-surface-mid); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-blue-mid); }
+
+/* Leaflet fix */
+.leaflet-container { z-index: 1; }
